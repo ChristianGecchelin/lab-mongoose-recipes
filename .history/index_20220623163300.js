@@ -41,24 +41,6 @@ mongoose
   .then((response) => {
     return Recipe.insertMany(data);
   })
-  .then((response) => {
-    console.log(response);
-    for (const element of data) {
-      console.log(element.title);
-    }
-    return Recipe.findOneAndUpdate(
-      { title: "Rigatoni alla Genovese" },
-      { duration: 100 },
-      { new: true }
-    );
-  })
-  .then((respone) => {
-    return Recipe.findOneAndDelete({ title: "Carrot Cake" });
-  })
-  .then((respone) => {
-    console.log("succes remove");
-    mongoose.connection.close();
-  })
   .catch((error) => {
     console.error("Error connecting to the database", error);
   });

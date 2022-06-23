@@ -55,10 +55,6 @@ mongoose
   .then((respone) => {
     return Recipe.findOneAndDelete({ title: "Carrot Cake" });
   })
-  .then((respone) => {
-    console.log("succes remove");
-    mongoose.connection.close();
-  })
   .catch((error) => {
     console.error("Error connecting to the database", error);
   });
